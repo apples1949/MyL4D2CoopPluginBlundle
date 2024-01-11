@@ -40,4 +40,26 @@ broadcast | 击杀或爆头和黑枪提示和关闭队伤 | 0.9.7 | Voiderest | 
 l4d2_melee_spawn_control | 近战解锁 | 1.6 |IA-NanaNana, sorallll | https://forums.alliedmods.net/showthread.php?p=2719531  
 callvote | 禁用游戏自带的投票 | UnKnowVer | UnKnown | UnKnowLink  
 NameChange Blocker | 禁止玩家控制台改名 蛋疼哥,sorallll | UnKnowLink | 待修改  
-Stripper 1.2.2 git135 
+爬梯时可开枪 | 1.0 | Lux | https://github.com/LuxLuma/L4D-small-plugins/tree/master/L4D2_cs_ladders  
+l4d2_emshud_info | 排行榜插件 | 2.13.12 | 豆瓣酱な sorallll | DouBanPluginBlundle | 待修改  
+Throwable Announcer | 扔投掷物提示 | 1.0.8 | Mart | https://forums.alliedmods.net/showthread.php?t=327613  
+sound_manipulation | 设置倒地次数为0时阻止不正常的心跳声 | 1.0 | Sir, 豆瓣酱な | DouBanPluginBlundle  
+witch ranking | 生还者对女巫的伤害排名 | 1.0.5 | 豆瓣酱な | DouBanPluginBlundle  
+tank ranking | 生还者对坦克的伤害排名 | 1.3.7 | 豆瓣酱な | DouBanPluginBlundle  
+Punch Angle | 生还者受伤屏幕晃动消除 | 1.0.0 | sorallll | UnKnowLink  
+bullet impact | 生还者随机弹尘颜色 | 1.0.0 | 豆瓣酱な | DouBanPluginBlundle  
+tank announce | 坦克或女巫出现时根据生还者人数增加血量 | 1.6.8 | Visor,豆瓣酱な | DouBanPluginBlundle | 待修改  
+infected hp | 坦克特感女巫血量显示和坦克死亡提示 | 1.0.4 | NiCo-op, Edited By Ernecio (Satanael)) | UnKnowLink  
+Aggresive Specials Patch | 特感主动攻击生还者 | 1.3 | sorallll, fdxx | https://github.com/fdxx/l4d2_plugins/blob/main/aggresive_specials_patch.sp  
+player team | 玩家转换队伍提示 | 1.0.0 | 豆瓣酱な | DouBanPluginBlundle  
+player suicide | 玩家自杀指令 | 1.0.2 | 豆瓣酱な | DouBanPluginBlundle  
+Weapon Attributes | 武器的伤害和弹夹等数据修改 | 3.0.1 
+ Jahze, A1m`, Forgetest | http://www.github.com/sirPlease/L4D2-Competitive-Rework  
+saferoomdoor | 显示幸存者开关安全门或次数限制 | UnKnowVer | UnKnow | UnKnowLink  
+LMC Black and White Notifier/LMCCore | 幸存者黑白发光 | 2.0.2 | Lux | https://forums.alliedmods.net/showthread.php?p=2449184  
+player status | 幸存者死亡和被制服提示 | 1.3.9 | 豆瓣酱な sorallll | DouBanPluginBlundle  
+SpecPrevFreePerspective | 幸存者闲置状态快速双击鼠标右键使用自由视角 | 1.1.0 | 豆瓣酱な | DouBanPluginBlundle  
+L4D2 AntiMelee | 修改近战对坦克和女巫的比例伤害或固定伤害 | 1.0 | Visor | https://github.com/Attano/L4D2-Competitive-Framework  
+Coop Boss Spawning/witch_and_tankifier | 战役解锁对抗刷坦克和女巫机制 | 1.0.4/2.4.1 | sorallll/CanadaRox, Sir, devilesk, Derpduck, Forgetest | https://github.com/umlka/l4d2/tree/main/coop_boss_spawning / http://www.github.com/sirPlease/L4D2-Competitive-Rework | 待修改  
+l4d2_PZDmgMsg | 阻止游戏自带的部分提示 | 1.1.2 | 豆瓣酱な | DouBanPluginBlundle | 待修改  
+Stripper 1.2.2 git135  
