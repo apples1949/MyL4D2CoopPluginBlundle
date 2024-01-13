@@ -797,7 +797,7 @@ void SetSpawnCount() {
 	int limit;
 	int spawnSize;
 	for (int i = 1; i <= MaxClients; i++) {
-		if (IsClientInGame(i) && GetClientTeam(i) == 2)
+		if (IsClientInGame(i) && GetClientTeam(i) == 2 && IsPlayerAlive(i))
 			count++;
 	}
 
@@ -816,7 +816,8 @@ void SetSpawnCount() {
 
 	g_cSILimit.IntValue = limit;
 	g_cSpawnSize.IntValue = spawnSize;
-	PrintToChatAll("\x01[\x05%d特\x01/\x05次\x01] \x05%d特 \x01[\x03%.1f\x01~\x03%.1f\x01]\x04秒", spawnSize <= limit ? spawnSize : limit, limit, g_fSpawnTimeMin, g_fSpawnTimeMax);
+	//PrintToChatAll("\x01[\x05%d特\x01/\x05次\x01] \x05%d特 \x01[\x03%.1f\x01~\x03%.1f\x01]\x04秒", spawnSize <= limit ? spawnSize : limit, limit, g_fSpawnTimeMin, g_fSpawnTimeMax);
+	PrintToChatAll("\x04刷特信息: \n刷特时间\x03%.1f\x01~\x03%.1f\x04秒 \n\x04每次刷出\x05%d只\x04特感 \n场上最多同时存在\x05%d只\x04特感", g_fSpawnTimeMin, g_fSpawnTimeMax, spawnSize <= limit ? spawnSize : limit, limit);
 }
 
 void Event_PlayerSpawn(Event event, const char[] name, bool dontBroadcast) {
@@ -833,8 +834,14 @@ void Event_PlayerSpawn(Event event, const char[] name, bool dontBroadcast) {
 void Event_PlayerDeath(Event event, const char[] name, bool dontBroadcast) {
 	int client = GetClientOfUserId(event.GetInt("userid"));
 	if (!client || !IsClientInGame(client) || GetClientTeam(client) != 3)
+	{
 		return;
-
+	}
+	if(GetClientTeam(client) == 2)
+	{
+		delete g_hUpdateTimer;
+		g_hUpdateTimer = CreateTimer(2.0, tmrUpdate);
+	}
 	static int class;
 	class = GetEntProp(client, Prop_Send, "m_zombieClass");
 	if (class == 8 && !FindTank(client))

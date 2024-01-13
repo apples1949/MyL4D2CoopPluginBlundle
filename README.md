@@ -60,7 +60,7 @@ LMC Black and White Notifier/LMCCore | 幸存者黑白发光 | 2.0.2 | Lux | htt
 player status | 幸存者死亡和被制服提示 | 1.3.9 | 豆瓣酱な sorallll | DouBanPluginBlundle  
 SpecPrevFreePerspective | 幸存者闲置状态快速双击鼠标右键使用自由视角 | 1.1.0 | 豆瓣酱な | DouBanPluginBlundle  
 L4D2 AntiMelee | 修改近战对坦克和女巫的比例伤害或固定伤害 | 1.0 | Visor | https://github.com/Attano/L4D2-Competitive-Framework  
-Coop Boss Spawning/witch_and_tankifier | 战役解锁对抗刷坦克和女巫机制 | 1.0.4/2.4.1 | sorallll/CanadaRox, Sir, devilesk, Derpduck, Forgetest | https://github.com/umlka/l4d2/tree/main/coop_boss_spawning / http://www.github.com/sirPlease/L4D2-Competitive-Rework | 待修改  
-l4d2_PZDmgMsg | 阻止游戏自带的部分提示 | 1.1.2 | 豆瓣酱な | DouBanPluginBlundle | 待修改  
+Coop Boss Spawning/witch_and_tankifier | 战役解锁对抗刷坦克和女巫机制 | 1.0.4/2.4.1 | sorallll/CanadaRox, Sir, devilesk, Derpduck, Forgetest | https://github.com/umlka/l4d2/tree/main/coop_boss_spawning / http://www.github.com/sirPlease/L4D2-Competitive-Rework | 更换为最ZM最新地图设置  
+l4d2_PZDmgMsg | 阻止游戏自带的部分提示 | 1.1.2 | 豆瓣酱な | DouBanPluginBlundle | 待改为确定的投票插件后再修改  
 Stripper 1.2.2 git135  
-Special Spawner | 多特感插件 | 1.3.6 | Tordecybombo, breezy | UnKnowLink  
+Special Spawner | 多特感插件 | 1.3.6 | Tordecybombo, breezy | UnKnowLink | 修改为检测存活的生还数量 当生还死亡时更新每波特感数量  
