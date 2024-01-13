@@ -25,11 +25,11 @@ go away from keyboard | 被特感控制时等禁止闲置和防止闲置加入�
 Advertisements | 彩色广告插件 | 0.6 | Tsunami | UnknowLink
 SafeArea Teleport | 传送或处死长时间不进终点安全屋的玩家 | 1.2.0 | sorallll |   https://forums.alliedmods.net/showthread.php?p=2766514#post2766514 
 Explosion Announcer | 点燃或打爆物品提示 | 1.0.7 | Mart | https://forums.alliedmods.net/showthread.php?t=328006  
-多人插件superversus1.8.15.5改 | 1.11.8 | DDRKhat, Marcus101RR, Merudo, Lux, Shadowysn, sorallll | https://github.com/umlka/l4d2/tree/main/superversus1.8.15.5-modify | 待修改  
+多人插件superversus1.8.15.5改 | 1.11.8 | DDRKhat, Marcus101RR, Merudo, Lux, Shadowysn, sorallll | https://github.com/umlka/l4d2/tree/main/superversus1.8.15.5-modify  
 Survivor AI Trigger Fix | 防止服务器人数不足而关闭 | 1.0.9 | AtomicStryker (and sb edi?)| http://forums.alliedmods.net/showthread.php?p=1004836  
 kick afk player | 防止玩家或管理员长时间闲置挂机 | 1.0.0 | 豆瓣酱な | DouBanPluginBlundle | 憨逼豆瓣源码直接复制别的插件代码导致插件信息不对 已修改重新编译  
 empty | 服务器没人后炸服或切换为官图 | 1.2.2 | lakwsh, 豆瓣酱な | DouBanPluginBlundle  
-more medical | 根据人数设置医疗物品倍数 | 1.0.5 | 豆瓣酱な | DouBanPluginBlundle | 待修改  
+more medical | 根据人数设置医疗物品倍数 | 1.0.5 | 豆瓣酱な | DouBanPluginBlundle  
 z difficulty | 管理员菜单更改难度 | 1.0.2 | 豆瓣酱な | DouBanPluginBlundle  
 remove witch | 管理员菜单删除女巫 | 1.0.1 | 豆瓣酱な | DouBanPluginBlundle  
 rygive | 管理员娱乐菜单 | 1.2.3a | sorallll and anyone | https://github.com/umlka/l4d2/tree/main/rygive  
@@ -39,16 +39,16 @@ GetWitchNumber | 获取自定义的女巫编号 |1.2.5 | 豆瓣酱な | DouBanPl
 broadcast | 击杀或爆头和黑枪提示和关闭队伤 | 0.9.7 | Voiderest | 豆瓣酱な |DouBanPluginBlundle  
 l4d2_melee_spawn_control | 近战解锁 | 1.6 |IA-NanaNana, sorallll | https://forums.alliedmods.net/showthread.php?p=2719531  
 callvote | 禁用游戏自带的投票 | UnKnowVer | UnKnown | UnKnowLink  
-NameChange Blocker | 禁止玩家控制台改名 蛋疼哥,sorallll | UnKnowLink | 待修改  
+NameChange Blocker | 禁止玩家控制台改名 蛋疼哥,sorallll | UnKnowLink  
 爬梯时可开枪 | 1.0 | Lux | https://github.com/LuxLuma/L4D-small-plugins/tree/master/L4D2_cs_ladders  
-l4d2_emshud_info | 排行榜插件 | 2.13.12 | 豆瓣酱な sorallll | DouBanPluginBlundle | 待修改  
+l4d2_emshud_info | 排行榜插件 | 2.13.12 | 豆瓣酱な sorallll | DouBanPluginBlundle | 修改路程显示为药抗模式  
 Throwable Announcer | 扔投掷物提示 | 1.0.8 | Mart | https://forums.alliedmods.net/showthread.php?t=327613  
 sound_manipulation | 设置倒地次数为0时阻止不正常的心跳声 | 1.0 | Sir, 豆瓣酱な | DouBanPluginBlundle  
 witch ranking | 生还者对女巫的伤害排名 | 1.0.5 | 豆瓣酱な | DouBanPluginBlundle  
 tank ranking | 生还者对坦克的伤害排名 | 1.3.7 | 豆瓣酱な | DouBanPluginBlundle  
 Punch Angle | 生还者受伤屏幕晃动消除 | 1.0.0 | sorallll | UnKnowLink  
 bullet impact | 生还者随机弹尘颜色 | 1.0.0 | 豆瓣酱な | DouBanPluginBlundle  
-tank announce | 坦克或女巫出现时根据生还者人数增加血量 | 1.6.8 | Visor,豆瓣酱な | DouBanPluginBlundle | 待修改  
+tank announce | 坦克或女巫出现时根据生还者人数增加血量 | 1.6.8 | Visor,豆瓣酱な | DouBanPluginBlundle  
 infected hp | 坦克特感女巫血量显示和坦克死亡提示 | 1.0.4 | NiCo-op, Edited By Ernecio (Satanael)) | UnKnowLink  
 Aggresive Specials Patch | 特感主动攻击生还者 | 1.3 | sorallll, fdxx | https://github.com/fdxx/l4d2_plugins/blob/main/aggresive_specials_patch.sp  
 player team | 玩家转换队伍提示 | 1.0.0 | 豆瓣酱な | DouBanPluginBlundle  
@@ -63,3 +63,4 @@ L4D2 AntiMelee | 修改近战对坦克和女巫的比例伤害或固定伤害 | 
 Coop Boss Spawning/witch_and_tankifier | 战役解锁对抗刷坦克和女巫机制 | 1.0.4/2.4.1 | sorallll/CanadaRox, Sir, devilesk, Derpduck, Forgetest | https://github.com/umlka/l4d2/tree/main/coop_boss_spawning / http://www.github.com/sirPlease/L4D2-Competitive-Rework | 待修改  
 l4d2_PZDmgMsg | 阻止游戏自带的部分提示 | 1.1.2 | 豆瓣酱な | DouBanPluginBlundle | 待修改  
 Stripper 1.2.2 git135  
+Special Spawner | 多特感插件 | 1.3.6 | Tordecybombo, breezy | UnKnowLink  
