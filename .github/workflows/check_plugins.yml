@@ -37,7 +37,7 @@ jobs:
       - uses: actions/checkout@v3
       - name: Set environment variables
         run: |
-          echo "SCRIPTS_PATH=$GITHUB_WORKSPACE/addons/sourcemod/scripting" >> $GITHUB_ENV
+          echo "SCRIPTS_PATH=$GITHUB_WORKSPACE/left4dead2/addons/sourcemod/scripting" >> $GITHUB_ENV
 
       - name: Setup SourcePawn Compiler ${{ matrix.SM_VERSION }}
         uses: rumblefrog/setup-sp@master
