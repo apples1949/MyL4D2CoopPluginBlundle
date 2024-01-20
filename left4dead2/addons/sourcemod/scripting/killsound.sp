@@ -64,7 +64,7 @@ public void OnMapStart()
 
 // 杀死小ss
 public Action evt_Infected_Death(Event event, const char[] name, bool dontBroadcast)
-{
+{/*
 	int killer = GetClientOfUserId(event.GetInt("attacker"));
 	int damagetype = event.GetInt("weapon_id");
 	bool headshot = GetEventBool(event, "headshot");
@@ -89,7 +89,7 @@ public Action evt_Infected_Death(Event event, const char[] name, bool dontBroadc
 	else
 	{
 		return;
-	}
+	}*/
 }
 
 // 杀死特感
@@ -109,20 +109,18 @@ public Action evt_PlayerDeath(Event event, const char[] name, bool dontBroadcast
 			if (g_iEnable == 1)
 			{
 				if ((strcmp(weapon, "pipe_bomb") == 0 || strcmp(weapon, "inferno") == 0) && g_iOtherEnable == 0)
-				{
-					return;
-				}
+				{}
 				PlaySound(killer, headshot);
 			}
 			else
 			{
-				return;
+				return Plugin_Handled;
 			}
 		}
 	}
 	else
 	{
-		return;
+		return Plugin_Handled;
 	}
 }
 
