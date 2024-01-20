@@ -89,8 +89,8 @@ public Action evt_Infected_Death(Event event, const char[] name, bool dontBroadc
 	else
 	{
 		return;
-	}*/
-}
+	}
+*/}
 
 // 杀死特感
 public Action evt_PlayerDeath(Event event, const char[] name, bool dontBroadcast)
