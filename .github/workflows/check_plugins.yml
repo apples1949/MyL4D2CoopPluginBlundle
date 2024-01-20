@@ -3,20 +3,20 @@ name: Check all plugins
 on:
   pull_request:
     paths:
-      - 'addons/sourcemod/scripting/**/*.sp'
-      - 'addons/sourcemod/scripting/**/*.inc'
+      - 'left4dead2/addons/sourcemod/scripting/**/*.sp'
+      - 'left4dead2/addons/sourcemod/scripting/**/*.inc'
     branches:
       - master
   push:
     paths:
-      - 'addons/sourcemod/scripting/**/*.sp'
-      - 'addons/sourcemod/scripting/**/*.inc'
+      - 'left4dead2/addons/sourcemod/scripting/**/*.sp'
+      - 'left4dead2/addons/sourcemod/scripting/**/*.inc'
     branches:
       - master
   workflow_dispatch:
     paths:
-      - 'addons/sourcemod/scripting/**/*.sp'
-      - 'addons/sourcemod/scripting/**/*.inc'
+      - 'left4dead2/addons/sourcemod/scripting/**/*.sp'
+      - 'left4dead2/addons/sourcemod/scripting/**/*.inc'
     branches:
       - master
 

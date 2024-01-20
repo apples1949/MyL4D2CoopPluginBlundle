@@ -1,24 +1,30 @@
-#if defined _EvilWitchNumber
- #endinput
+#pragma semicolon 1
+#pragma newdecls required
+
+public SharedPlugin l4d2_GetWitchNumber = 
+{
+    name = "l4d2_GetWitchNumber", file = "l4d2_GetWitchNumber.smx",
+#if defined REQUIRE_PLUGIN
+    required = 1,
+#else
+    required = 0,
 #endif
-#define _EvilWitchNumber
+};
+
+/*
+#if !defined REQUIRE_PLUGIN
+public l4d2_GetWitchNumber_SetNTVOptional()
+{
+    
+}
+#endif
+*/
 
 /**
- * 获取自定义的女巫编号.
+ * @根据女巫ID返回编号.
  *
  * @param iWitchid			传入女巫实体ID.
  *
- * @return				    -1=数组里没有该女巫的索引.
+ * @return					如果是第一个出现的女巫则return 0.
  */
 native int GetWitchNumber(int iWitchid);
-
-/**
- * 获取女巫死亡时的类型.      建议在 HookEvent("witch_killed", EventHookMode_Post) 事件里使用.
- *
- * @param iWitchid			传入女巫实体ID.
- * @param sDeathType		获取女巫的死亡类型.
- * @param maxlength			设置字符串最大大小.
- *
- * @return					0=击杀,1=爆头,2=秒杀.
- */
-native int GetWitchkilled(int iWitchid, char[] sDeathType = "", int maxlength = 128);
