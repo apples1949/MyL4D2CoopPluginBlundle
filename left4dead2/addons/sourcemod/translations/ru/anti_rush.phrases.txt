@@ -1,0 +1,42 @@
+"Phrases"
+{
+	"Rush_Slowdown"
+	{
+		"ru"	"{orange}[Anti Rush] {green}Перестаньте убегать, {orange}cлишком далеко {green}от выживших, {orange}возвращайтесь {green}к ним."
+	}
+
+	"Rush_Ahead"
+	{
+		"ru"	"{orange}[Anti Rush] {green}Ты {orange} слишком далеко впереди {green}выживших, телепортируешься обратно."
+	}
+
+	"Rush_Behind"
+	{
+		"ru"	"{orange}[Anti Rush] {green}Вы {orange} слишком отстаете от выживших, {green}телепортируетесь вперед."
+	}
+
+	"Rush_Health"
+	{
+		"ru"	"{orange}[Anti Rush] {green}Вы {orange} слишком далеко опередили {green}выживших, {orange}отступите {green}или потеряете здоровье."
+	}
+
+	"Warn_Slowdown"
+	{
+		"ru"	"{orange}[Anti Rush] {green}Вы продвигаетесь {orange}слишком далеко вперед {green}выживших, {orange}двигайтесь назад {green}или вас замедлят."
+	}
+
+	"Warn_Ahead"
+	{
+		"ru"	"{orange}[Anti Rush] {green}Вы продвигаетесь {orange}слишком далеко вперед {green}выживших, {orange}двигайтесь назад {green}или будете телепортированы."
+	}
+
+	"Warn_Behind"
+	{
+		"ru"	"{orange}[Anti Rush] {green}Вы отстаете {orange}слишком далеко от выживших{green}, {orange}двигайтесь вперед {green}или телепортируйтесь."
+	}
+
+	"Warn_Health"
+	{
+		"ru"	"{orange}[Anti Rush] {green}Вы продвигаетесь {orange}слишком далеко вперед {green}выживших, {orange}двигайтесь назад {green}или потеряете здоровье."
+	}
+}

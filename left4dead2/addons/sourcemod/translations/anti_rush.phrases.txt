@@ -1,0 +1,42 @@
+"Phrases"
+{
+	"Rush_Slowdown"
+	{
+		"en"	"{orange}[Anti Rush] {green}Stop rushing, {orange}too far {green}from Survivors, {orange}move back {green}toward them."
+	}
+
+	"Rush_Ahead"
+	{
+		"en"	"{orange}[Anti Rush] {green}You're {orange}too far ahead {green}of Survivors, teleporting back."
+	}
+
+	"Rush_Behind"
+	{
+		"en"	"{orange}[Anti Rush] {green}You're {orange}too far behind {green}Survivors, teleporting forward."
+	}
+
+	"Rush_Health"
+	{
+		"en"	"{orange}[Anti Rush] {green}You're {orange}too far ahead {green}of Survivors, {orange}move back {green}or lose health."
+	}
+
+	"Warn_Slowdown"
+	{
+		"en"	"{orange}[Anti Rush] {green}You're moving {orange}too far ahead {green}of Survivors, {orange}move back {green}or be slowed down."
+	}
+
+	"Warn_Ahead"
+	{
+		"en"	"{orange}[Anti Rush] {green}You're moving {orange}too far ahead {green}of Survivors, {orange}move back {green}or be teleported."
+	}
+
+	"Warn_Behind"
+	{
+		"en"	"{orange}[Anti Rush] {green}You're falling {orange}too far behind {green}Survivors, {orange}move forward {green}or be teleported."
+	}
+
+	"Warn_Health"
+	{
+		"en"	"{orange}[Anti Rush] {green}You're moving {orange}too far ahead {green}of Survivors, {orange}move back {green}or lose health."
+	}
+}
