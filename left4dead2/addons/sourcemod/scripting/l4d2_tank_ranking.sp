@@ -7,7 +7,9 @@
 #include <sdkhooks>
 
 #define MAX_SIZE		128	//定义字符串大小.
-#define PLUGIN_VERSION	"1.3.7"
+#define PLUGIN_VERSION	"1.4.7"
+
+bool g_bLateLoad;
 
 int    g_iTankIdle, g_iTankRanking;
 ConVar g_hTankIdle, g_hTankRanking;
@@ -23,6 +25,12 @@ public Plugin myinfo =
 	url = "N/A"
 };
 
+public APLRes AskPluginLoad2(Handle myself, bool late, char[] error, int err_max)
+{
+	g_bLateLoad = late;
+	return APLRes_Success;
+}
+
 public void OnPluginStart()
 {
 	HookEvent("tank_spawn", Event_TankSpawn);//坦克出现.
@@ -33,8 +41,19 @@ public void OnPluginStart()
 	g_hTankIdle.AddChangeHook(IsConVarChanged);
 	g_hTankRanking.AddChangeHook(IsConVarChanged);
 	AutoExecConfig(true, "l4d2_tank_ranking");//生成指定文件名的CFG.
-}
 
+	if(g_bLateLoad)//如果插件延迟加载.
+	{
+		for (int i = 1; i <= MaxClients; i++)
+		{
+			if(IsValidClient(i) && GetClientTeam(i) == 3 && IsPlayerAlive(i) && GetEntProp(i, Prop_Send, "m_zombieClass") == 8)
+			{
+				OnClientPutInServer(i);//勾住坦克.
+				g_iTankHP[i] = GetClientHealth(i);//记录坦克的血量.
+			}
+		}
+	}
+}
 //地图开始.
 public void OnMapStart()
 {
@@ -62,16 +81,16 @@ public void Event_TankSpawn(Event event, const char[] name, bool dontBroadcast)
 
 	if(IsValidClient(client) && GetClientTeam(client) == 3 && IsPlayerAlive(client) && GetEntProp(client, Prop_Send, "m_zombieClass") == 8)
 	{	
-		RequestFrame(GetTankHealthFrame, GetClientUserId(client));//坦克出现时延迟一帧获取血量.
+		RequestFrame(IsTankHealthFrame, GetClientUserId(client));//坦克出现时延迟一帧获取血量.
 		IsResetVariable(client);//坦克出现时重置整型变量.
 	}
 }
 
 //坦克出现时获取血量.
-void GetTankHealthFrame(int client)
+void IsTankHealthFrame(int client)
 {
-	if ((client = GetClientOfUserId(client)) && IsClientInGame(client))
-		if (IsClientInGame(client) && GetClientTeam(client) == 3 && IsPlayerAlive(client) && GetEntProp(client, Prop_Send, "m_zombieClass") == 8)
+	if ((client = GetClientOfUserId(client)))
+		if (IsValidClient(client) && GetClientTeam(client) == 3 && IsPlayerAlive(client) && GetEntProp(client, Prop_Send, "m_zombieClass") == 8)
 			g_iTankHP[client] = GetClientHealth(client);//记录坦克出现时的血量.
 }
 
@@ -104,7 +123,7 @@ public void OnClientPutInServer(int client)
 
 void IsTankThink(int client)
 {
-	if (IsClientInGame(client) && GetClientTeam(client) == 3 && IsPlayerAlive(client) && GetEntProp(client, Prop_Send, "m_zombieClass") == 8 && IsClientInKickQueue(client))
+	if (IsValidClient(client) && GetClientTeam(client) == 3 && IsPlayerAlive(client) && GetEntProp(client, Prop_Send, "m_zombieClass") == 8 && IsClientInKickQueue(client))
 	{
 		char sIndex[32];
 		if(IsFakeClient(client))
@@ -198,7 +217,7 @@ void IsTankDamageSort(int client, char[] sIndex, char[] sWhys)
 				iCount += 1;
 			}
 		}
-		
+		//这部分用于显示对齐的计算.
 		for (int y = 0; y < 3; y++)
 			iTemp[y] = strlen(sData[0][y]);
 
@@ -217,12 +236,12 @@ void IsTankDamageSort(int client, char[] sIndex, char[] sWhys)
 		}
 	}
 }
-
+//用于计算的百分比.
 int GetTotalHealth(int iTankHealth, int iTotalDamage)
 {
 	return iTotalDamage > iTankHealth ? iTotalDamage : iTankHealth;
 }
-
+//计算生还者对坦克的总伤害.
 int GetTotalDamage(int client)
 {
 	int iTotalDamage;
@@ -251,13 +270,12 @@ stock char[] IsWritesData(int iNumber, char[] sValue)
 	}
 	return sInfo;
 }
-
-//百分比取整.
+//计算百分比.
 float GetDamagePercentage(int iDamage, int iTotalHealth)
 {
 	return float(iDamage) / float(iTotalHealth) * 100.0;
 }
-
+//2D排序的回调.
 int ClientValue2DSortDesc(int[] elem1, int[] elem2, const int[][] array, Handle hndl)
 {
 	if (elem1[1] > elem2[1])
@@ -267,7 +285,6 @@ int ClientValue2DSortDesc(int[] elem1, int[] elem2, const int[][] array, Handle 
 		
 	return 0;
 }
-
 //坦克死亡后重置整型变量.
 void IsResetVariable(int client)
 {
@@ -285,7 +302,7 @@ stock bool IsPlayerState(int client)
 {
 	return !GetEntProp(client, Prop_Send, "m_isIncapacitated") && !GetEntProp(client, Prop_Send, "m_isHangingFromLedge");
 }
-
+//这个属性特别好用.
 int IsClientIdle(int client)
 {
 	if (!HasEntProp(client, Prop_Send, "m_humanSpectatorUserID"))

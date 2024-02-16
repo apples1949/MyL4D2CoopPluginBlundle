@@ -8,12 +8,13 @@
 #pragma newdecls required
 #include <sourcemod>
 #include <sdkhooks>
+#include <dhooks>
 
 #define MAX_SIZE		128	//定义字符串大小.
 #define MAX_ARRAY	 	2048
-#define PLUGIN_VERSION	"1.0.5"
+#define PLUGIN_VERSION	"1.1.5"
 
-bool g_bWitchNumber;
+bool g_bLateLoad, g_bWitchNumber;
 
 native int GetWitchNumber(int iWitchid);
 native int GetWitchkilled(int iWitchid, char[] sDeathType = "", int maxlength = 128);
@@ -31,6 +32,7 @@ public APLRes AskPluginLoad2(Handle myself, bool late, char[] error, int err_max
 		return APLRes_SilentFailure;
 	}
 	MarkNativeAsOptional("GetWitchNumber");
+	g_bLateLoad = late;
 	return APLRes_Success;
 }
 
@@ -68,6 +70,16 @@ public void OnPluginStart()
 	g_hWitchRanking = CreateConVar("l4d2_witch_Ranking", "5", "设置生还者对女巫的伤害的最大排名. 0=禁用.", FCVAR_NOTIFY);
 	g_hWitchRanking.AddChangeHook(IsConVarChanged);
 	AutoExecConfig(true, "l4d2_witch_ranking");//生成指定文件名的CFG.
+
+	if(g_bLateLoad)//如果插件延迟加载.
+	{
+		int entity = -1;
+		while ((entity = FindEntityByClassname(entity, "witch")) != INVALID_ENT_REFERENCE)
+		{
+			g_fWitchHP[entity] = GetWitchHealth(entity);//记录女巫的血量.
+			SDKHook(entity, SDKHook_OnTakeDamageAlive, OnTakeDamageAlive);//勾住女巫.
+		}
+	}
 }
 
 //地图开始.
@@ -98,12 +110,12 @@ public void Event_WitchSpawn(Event event, const char[] name, bool dontBroadcast)
 		//这里使用下一帧.
 		DataPack hPack = new DataPack();
 		hPack.WriteCell(iWitchid);
-		RequestFrame(GetFrameHealth, hPack);
+		RequestFrame(IsWitchFrameHealth, hPack);
 		IsResetVariable(iWitchid);//女巫出现时重置整型变量.
 	}
 }
 
-void GetFrameHealth(DataPack hPack)
+void IsWitchFrameHealth(DataPack hPack)
 {
 	hPack.Reset();
 	int iWitchid = hPack.ReadCell();
@@ -152,7 +164,7 @@ public Action OnTakeDamageAlive(int client, int &attacker, int &inflictor, float
 		if (IsValidEdict(client))
 		{
 			int iBot = IsClientIdle(attacker);
-			g_fWitchHurt[client] = GetWitchHealth(client);//记录坦克剩余的血量.
+			g_fWitchHurt[client] = GetWitchHealth(client);//记录女巫剩余的血量.
 			g_fSurvivorWitchHurt[!iBot ? attacker : iBot][client] += damage > g_fWitchHurt[client] ? g_fWitchHurt[client] < 0.0 ? 0.0 : g_fWitchHurt[client] : damage;
 		}
 	}
@@ -165,21 +177,6 @@ public void Event_Witchkilled(Event event, const char[] name, bool dontBroadcast
 
 	if (IsValidEdict(iWitchid))
 	{
-		/*
-		int attacker = GetClientOfUserId(event.GetInt("attacker"));
-		if(IsValidClient(attacker) && GetClientTeam(attacker) == 2)
-		{
-			
-			char sWeapon[32];
-			event.GetString("weapon", sWeapon, sizeof(sWeapon));
-			if (strcmp(sWeapon, "melee") != 0)//击杀武器不是近战时执行.
-			{
-				int iBot = IsClientIdle(attacker);
-				g_fSurvivorWitchHurt[!iBot ? attacker : iBot][iWitchid] += g_fWitchHurt[iWitchid];//坦克死亡后把剩余血量+给击杀者.
-			}
-			
-		}
-		*/
 		if (g_iWitchRanking > 0)
 			IsWitchDamageSort(iWitchid, GetWitchIndex(iWitchid), "死亡");
 		IsResetVariable(iWitchid);//女巫被死亡时重置整型变量.
@@ -268,7 +265,7 @@ float GetTotalHealth(float fWitchHealth, float fTotalDamage)
 {
 	return fTotalDamage > fWitchHealth ? fTotalDamage : fWitchHealth;
 }
-
+//生还者对女巫的总伤害.
 float GetTotalDamage(int witchId)
 {
 	float fTotalDamage;
@@ -314,7 +311,7 @@ int ClientValue2DSortDesc(any[] elem1, any[] elem2, const any[][] array, Handle 
 	return 0;
 }
 
-//坦克死亡后重置整型变量.
+//女巫死亡后重置整型变量.
 void IsResetVariable(int Witchid)
 {
 	for(int i = 1; i <= MaxClients; i++)
