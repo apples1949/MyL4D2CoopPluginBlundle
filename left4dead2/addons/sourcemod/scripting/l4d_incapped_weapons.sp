@@ -449,6 +449,7 @@ public void OnPluginStart()
 		g_hCvarRest =		CreateConVar(	"l4d_incapped_weapons_restrict",		"8",					"空字符串以允许全部武器物品.防止这些武器/物品ID在倒地被使用.有关详细信息,请参阅发布帖", CVAR_FLAGS);
 	}
 
+	g_hCvarRevive =			CreateConVar(	"l4d_incapped_weapons_revive",			"3",					"复活动画: 0=关闭. 1=开启，受到伤害会停止复活. 2=受到伤害会中断动画并重新开始复活.  3=受到伤害不会中断复活。", CVAR_FLAGS);
 	g_hCvarThrow =			CreateConVar(	"l4d_incapped_weapons_throw",			"0",					"0=阻止投掷手榴弹的动画,以防止在投掷时站起来(需要Left4DHooks插件) 1=允许投掷动画", CVAR_FLAGS);
 
 	CreateConVar(							"l4d_incapped_weapons_version",			PLUGIN_VERSION,			"Incapped Weapons plugin version.", FCVAR_NOTIFY|FCVAR_DONTRECORD);
