@@ -86,13 +86,13 @@ public int LM_GetCurrentLerpTime(Handle plugin, int numParams)
 
 public void OnPluginStart()
 {
-	cVarAllowedLerpChanges = CreateConVar("sm_allowed_lerp_changes", "4", "Allowed number of lerp changes for a half", _, true, 0.0, true, 20.0);
+	cVarAllowedLerpChanges = CreateConVar("sm_allowed_lerp_changes", "20", "Allowed number of lerp changes for a half", _, true, 0.0, true, 20.0);
 	cVarLerpChangeSpec = CreateConVar("sm_lerp_change_spec", "1", "Move to spectators on exceeding lerp changes count?", _, true, 0.0, true, 1.0);
 	cVarBadLerpAction = CreateConVar("sm_bad_lerp_action", "1", "What to do with a player if he is out of allowed lerp range? 1 - move to spectators, 0 - kick from server", _, true, 0.0, true, 1.0);
 	cVarReadyUpLerpChanges = CreateConVar("sm_readyup_lerp_changes", "1", "Allow lerp changes during ready-up", _, true, 0.0, true, 1.0);
 	cVarShowLerpTeamChange = CreateConVar("sm_show_lerp_team_changes", "1", "show a message about the player's lerp if he changes the team", _, true, 0.0, true, 1.0);
 	cVarMinLerp = CreateConVar("sm_min_lerp", "0.000", "Minimum allowed lerp value", _, true, 0.000, true, 0.500);
-	cVarMaxLerp = CreateConVar("sm_max_lerp", "0.067", "Maximum allowed lerp value", _, true, 0.000, true, 0.500);
+	cVarMaxLerp = CreateConVar("sm_max_lerp", "0.100", "Maximum allowed lerp value", _, true, 0.000, true, 0.500);
 	
 	RegConsoleCmd("sm_lerps", Lerps_Cmd, "List the Lerps of all players in game");
 	
