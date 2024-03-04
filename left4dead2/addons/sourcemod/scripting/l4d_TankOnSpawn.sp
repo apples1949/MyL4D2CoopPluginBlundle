@@ -85,7 +85,7 @@ public void OnPluginStart()
 	g_ConVarMaxDelay				 = CreateConVar("l4d_tank_on_spawn_delay_max", "90.0", "地图第一关生还者离开安全区后，最晚多少秒生成坦克", CVAR_FLAGS);
 	g_ConVarSpawnInterval			 = CreateConVar("l4d_tank_on_spawn_interval", "1", "生成坦克后多少秒生成下一个坦克", CVAR_FLAGS);
 	g_ConVarCountMode				 = CreateConVar("l4d_tank_on_spawn_countmode", "2", "1-根据cvar数值+菜单设置坦克数量/ 2-根据玩家数量自动设置坦克数量(auto-balancer)", CVAR_FLAGS);
-	g_ConVarCount					 = CreateConVar("l4d_tank_on_spawn_count", "2", "坦克生成数量(l4d_tank_on_spawn_countmode = 1)", CVAR_FLAGS);
+	g_ConVarCount					 = CreateConVar("l4d_tank_on_spawn_count", "4", "坦克生成数量(l4d_tank_on_spawn_countmode = 1)", CVAR_FLAGS);
 	g_ConVarCountLimit				 = CreateConVar("l4d_tank_on_spawn_countlimit", "8", "允许在地图上存活坦克最大数量 (其他坦克将移动到生成队列)", CVAR_FLAGS);
 	g_ConVarControlHP				 = CreateConVar("l4d_tank_on_spawn_control_hp", "0", "需要设置坦克血量? (0-否/1-固定血量 / 2-根据玩家数量自动设置坦克血量)", CVAR_FLAGS);
 	g_ConVarHP						 = CreateConVar("l4d_tank_on_spawn_hp", "4000", "坦克血量设置", CVAR_FLAGS);
@@ -157,7 +157,7 @@ public void OnPluginStart()
 		g_ConVarMaxSpecials2 = FindConVar("survival_max_specials");
 	}
 
-	// AutoExecConfig(true, "l4d_tank_on_spawn");
+	AutoExecConfig(true, "l4d_tank_on_spawn");
 
 	g_ConVarEnable.AddChangeHook(ConVarChanged);
 	g_ConVarDifficulty.AddChangeHook(ConVarChanged);
