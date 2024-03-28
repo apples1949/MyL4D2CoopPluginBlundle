@@ -215,7 +215,7 @@ public void OnPluginStart() {
 	g_cTankStatusLimits.AddChangeHook(CvarChanged_TankCustom);
 	g_cTankStatusWeights.AddChangeHook(CvarChanged_TankCustom);
 
-	//AutoExecConfig(true, "specialspawner");//生成指定文件名的CFG.
+	AutoExecConfig(true, "specialspawner");//生成指定文件名的CFG.
 
 	HookEvent("round_end",				Event_RoundEnd,		EventHookMode_PostNoCopy);
 	HookEvent("finale_vehicle_leaving", Event_RoundEnd,		EventHookMode_PostNoCopy);

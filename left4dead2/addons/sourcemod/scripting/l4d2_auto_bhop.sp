@@ -27,7 +27,7 @@
 #define PLUGIN_VER "1.3.5"
 
 ConVar cv_autoBhopCompetitive;
-bool g_AutoBhop[MAXCLIENTS + 1];
+bool g_AutoBhop[MAXCLIENTS + 1]={true,...};
 
 public Plugin myinfo =
 {
