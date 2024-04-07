@@ -397,7 +397,15 @@ char[] GetPlayerName(int client)
 			FormatEx(g_sName, sizeof(g_sName), "%N", iBot != 0 ? iBot : client);
 		}
 		case 3:
-			strcopy(g_sName, sizeof(g_sName), g_sZombieName[GetEntProp(client, Prop_Send, "m_zombieClass") - 1]);
+		{
+			if(IsValidClient(client) && !IsFakeClient(client))
+			{
+
+				FormatEx(g_sName, sizeof(g_sName), "%N(%s)", client, g_sZombieName[GetEntProp(client, Prop_Send, "m_zombieClass") - 1]);
+			}
+			else strcopy(g_sName, sizeof(g_sName), g_sZombieName[GetEntProp(client, Prop_Send, "m_zombieClass") - 1]);
+		}
+			
 	}
 	return g_sName;
 }
