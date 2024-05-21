@@ -643,7 +643,11 @@ Action cmdMapVote(int client, int args) {
 		PrintToChat(client, "旁观者无法进行投票");
 		return Plugin_Handled;
 	}
-
+	ServerCommand("update_addon_paths; mission_reload");
+	ServerExecute();
+	OnPhrasesReady();
+	SetFirstMapString();
+	ReplyToCommand(client, "[提示]已更新VPK文件.");
 	Menu menu = new Menu(MapVote_MenuHandler);
 	menu.SetTitle("选择地图类型:");
 	menu.AddItem("", "官方地图");
